@@ -35,7 +35,9 @@
 #include <libproc.h>
 #endif
 #ifdef HAVE_SYS_SYSCTL_H
+#if defined(CTL_KERN) && defined(KERN_PROC) && defined(KERN_PROC_PATHNAME) /* *BSD */
 #include <sys/sysctl.h>
+#endif
 #endif
 #if IS_WIN32 && !IS_CYGWIN
 #include <windows.h>
